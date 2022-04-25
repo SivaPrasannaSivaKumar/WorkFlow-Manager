@@ -1,0 +1,18 @@
+.nav-link {
+  font-size: 1.3em;
+  margin: 5px 10px;
+  color: #fff;
+  transition: transform 500ms ease-in-out;
+}
+
+.dropdown-menu,
+.dropdown-item {
+  background-color: #28282B;
+  color: #fff;
+  transition: transform 500ms ease-in-out;
+}
+
+.nav-item:hover,
+.dropdown-item:hover {
+  transform: scale(1.1);
+}
