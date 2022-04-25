@@ -10,12 +10,18 @@ import { TaskComponent } from './module/task/task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
+import { SignInComponent } from './module/auth/sign-in/sign-in.component';
+import { SignUpComponent } from './module/auth/sign-up/sign-up.component';
+import { UserProfileComponent } from './module/user-profile/user-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    TaskComponent
+    TaskComponent,
+    SignInComponent,
+    SignUpComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

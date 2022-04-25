@@ -63,6 +63,9 @@ export class TaskComponent implements OnInit {
       this.rs.getTaskDetails().subscribe((res) => {
         this.Task = res;
       });
+
+      this.TaskGroup.enable();
+
     }
   }
 
