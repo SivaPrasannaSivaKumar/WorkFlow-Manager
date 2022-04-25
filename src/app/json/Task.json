@@ -1,3 +1,9 @@
 {
-  "Task": []
+  "Task": [
+    {
+      "taskName": "Workflow Manager",
+      "desc": "Heptagon",
+      "id": 1
+    }
+  ]
 }

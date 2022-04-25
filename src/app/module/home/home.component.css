@@ -13,7 +13,7 @@
   justify-content: center;
   text-align: center;
   background-color: #005effcd;
-  border-radius: 250px 0 0 250px;
+  border-radius: 0 250px 250px 0;
   color: #fff;
   margin: 85px 0 0 0;
 }
@@ -48,7 +48,7 @@
   justify-content: center;
   text-align: center;
   background-color: #005effcd;
-  border-radius: 0 250px 250px 0;
+  border-radius: 250px 0 0 250px;
   color: #fff;
   margin: 65px 0 0 50%;
 }
