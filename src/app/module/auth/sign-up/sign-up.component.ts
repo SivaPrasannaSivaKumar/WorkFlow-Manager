@@ -15,21 +15,21 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.UserRegister = this.formBuilder.group({
-      userName:['',Validators.required],
-      userEmail:['',Validators.required],
-      userPassword:['',Validators.required]
+      userName: ['', Validators.required],
+      userEmail: ['', Validators.required],
+      userPassword: ['', Validators.required]
     })
   }
 
-  saveUser(){
-    this.http.post<any>("http://localhost:3000/User",this.UserRegister.value).subscribe(res => {
+  saveUser() {
+    this.http.post<any>("http://localhost:3000/User", this.UserRegister.value).subscribe(res => {
       this.UserRegister.reset();
-    alert("User Registered Successfully!");
+      alert("User Registered Successfully!");
 
     },
-    err =>{
-      console.log("Something went wrong");
-    });
+      err => {
+        console.log("Something went wrong");
+      });
   }
 
 }

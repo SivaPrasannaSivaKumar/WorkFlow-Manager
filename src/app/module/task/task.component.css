@@ -8,6 +8,14 @@ table {
   margin: 5% auto;
 }
 
+th, td {
+  overflow: hidden;
+  width: 500px;
+  text-overflow: break;
+  white-space: wrap;
+  align-items: center;
+}
+
 .bi {
   cursor: pointer;
 }

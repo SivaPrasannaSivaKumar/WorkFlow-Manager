@@ -54,6 +54,12 @@ export class TaskComponent implements OnInit {
     });
   }
 
+  changeText() {
+    this.btnText = 'Completed';
+    this.icon = 'bi bi-check';
+    this.TaskGroup.enable();
+  }
+
   deleteRow(val: number) {
     if (confirm("Are you sure?")) {
       this.rs.deleteTaskDetails(val).subscribe(data => {
@@ -69,10 +75,10 @@ export class TaskComponent implements OnInit {
     }
   }
 
-  changeText() {
-    this.btnText = 'Completed';
-    this.icon = 'bi bi-check';
-    this.TaskGroup.enable();
+  viewRow(value: number){
+    this.rs.viewTaskDetails(value).subscribe(data => {
+      alert(data.taskname);
+    })
   }
 
 }

@@ -26,12 +26,12 @@ export class RestService {
 
   deleteTaskDetails(id: number): Observable<Task> {
     const url = `${this.url}/${id}`;
-    return this.http.delete<Task>(url, this.httpOptions)
+    return this.http.delete<Task>(url, this.httpOptions);
   }
 
   getUpdateTaskDetails(id: number): Observable<Task> {
     const url = `${this.url}/${id}`;
-    return this.http.get<Task>(url, this.httpOptions)
+    return this.http.get<Task>(url, this.httpOptions);
   }
 
   updateTaskDetails(task: TaskFetch): Observable<Task> {
@@ -39,6 +39,11 @@ export class RestService {
     return this.http.put<Task>(url, task, this.httpOptions).pipe(
       map(() => task)
     )
+  }
+
+  viewTaskDetails(id: number): Observable<Task>{
+    const url = `${this.url}/${id}`;
+    return this.http.get<Task>(url, this.httpOptions);
   }
 
 }
