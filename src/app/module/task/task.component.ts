@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { RestService } from 'src/app/service/rest.service';
 import { Task } from 'src/app/service/Task';
 
+
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',

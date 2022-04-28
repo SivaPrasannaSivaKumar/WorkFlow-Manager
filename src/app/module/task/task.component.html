@@ -65,14 +65,18 @@
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let element">
         <i
-          class="bi bi-trash3-fill"
-          style="color: rgba(255, 0, 0, 0.811); font-size: 1.1rem"
-          (click)="deleteRow(element.id)"
+          class="bi bi-eye-fill"
+          style="color: rgb(72, 72, 255); font-size: 1.2rem"
+          (click)="viewRow(element.taskname)"
         ></i>
         <i
-          class="bi bi-eye-fill ms-1"
-          style="color: rgb(72, 72, 255); font-size: 1.2rem"
-          (click)="viewRow(element.id)"
+          class="bi bi-pencil-square ms-2"
+          style="color: rgba(60, 255, 0, 0.815); font-size: 1.2rem"
+        ></i>
+        <i
+          class="bi bi-trash2-fill ms-2"
+          style="color: rgba(255, 0, 0, 0.811); font-size: 1.2rem"
+          (click)="deleteRow(element.id)"
         ></i>
       </td>
     </ng-container>

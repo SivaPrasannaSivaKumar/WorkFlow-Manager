@@ -29,6 +29,7 @@
   font-weight: 500;
   text-overflow: clip;
   margin: 0 20px;
+  align-items: center;
 }
 
 .workflow {
