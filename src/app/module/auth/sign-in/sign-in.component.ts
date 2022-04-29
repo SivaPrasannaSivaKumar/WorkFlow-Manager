@@ -21,14 +21,14 @@ export class SignInComponent implements OnInit {
   }
 
   login() {
-    this.http.get<any>("http://localhost:3000/signUpUsers")
+    this.http.get<any>("http://localhost:3000/User")
       .subscribe(res => {
         const user = res.find((a: any) => {
           return a.email === this.signInForm.value.email && a.password === this.signInForm.value.password
         });
         if (user) {
           this.signInForm.reset();
-          this.route.navigate([''])
+          this.route.navigate(['/home'])
         } else {
           alert("User not found");
         }

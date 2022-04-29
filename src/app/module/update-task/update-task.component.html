@@ -2,12 +2,13 @@
 <form class="container">
   <form class="form-group" (ngSubmit)="update()">
     <div class="mb-3">
-      <label for="taskName" class="form-label">Task Name</label>
+      <label for="taskname" class="form-label">Task Name</label>
       <input
         type="text"
         class="form-control"
         [(ngModel)]="tf.taskname"
-        id="taskName"
+        id="taskname"
+        name="taskname"
       />
     </div>
     <div class="mb-3">
@@ -17,6 +18,7 @@
         class="form-control"
         [(ngModel)]="tf.desc"
         id="desc"
+        name="desc"
       />
     </div>
     <div class="mb-3">
@@ -26,6 +28,7 @@
         class="form-control"
         [(ngModel)]="tf.status"
         id="status"
+        name="status"
       />
     </div>
 

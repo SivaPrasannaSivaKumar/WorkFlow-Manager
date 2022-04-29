@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { RestService } from 'src/app/rest.service';
-import { Task } from 'src/app/service/Task';
+import { Task } from 'src/app/Task';
 import {TaskFetch} from 'src/app/task-fetch';
 
 
@@ -19,14 +19,20 @@ export class TaskComponent implements OnInit {
   Task: Task[] = []
   tf: TaskFetch
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private route: Router, private rs: RestService) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private rs: RestService) { }
 
   ngOnInit(): void {
     this.TaskGroup = this.formBuilder.group({
-      taskName: ['', Validators.required],
+      taskname: ['', Validators.required],
       desc: ['', Validators.required],
       status:['',Validators.required]
     });
+
+    this.rs.getTaskDetails().subscribe((res) =>{
+      this.Task = res
+    }, (err) =>{
+      console.log(err)
+    })
   }
 
   addTask() {
@@ -37,14 +43,6 @@ export class TaskComponent implements OnInit {
     },
       err => {
         console.log("Somsething went wrong")
-      }
-    )
-
-    this.rs.getTaskDetails().subscribe((res) => {
-      this.Task = res;
-    },
-      (err) => {
-        console.log("Error occures", err)
       }
     )
   }
@@ -73,6 +71,6 @@ export class TaskComponent implements OnInit {
   }
 
   updateTask(id:number){
-    this.route.navigate(['/update', id])
+    this.router.navigate(['/update', id])
   }
 }

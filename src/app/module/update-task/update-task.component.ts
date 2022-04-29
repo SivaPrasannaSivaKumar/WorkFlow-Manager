@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestService } from 'src/app/rest.service';
-import { Task } from 'src/app/service/Task';
+import { Task } from 'src/app/Task';
 import {TaskFetch} from 'src/app/task-fetch';
 
 @Component({
@@ -15,12 +15,13 @@ export class UpdateTaskComponent implements OnInit {
 
   val:any
   Task:Task[] = []
-  tf:TaskFetch
+  tf:TaskFetch = new TaskFetch()
 
   ngOnInit(): void {
     let sub = this.route.params.subscribe(params => {
       this.val = params['id']
     })
+    console.log("Id:"+ this.val);
     this.rs.getUpdateTaskDetails(this.val).subscribe(data=> {
       this.tf = data
     })

@@ -2,12 +2,12 @@
 <form class="container">
   <form [formGroup]="TaskGroup" (ngSubmit)="addTask()">
     <div class="mb-3">
-      <label for="taskName" class="form-label">Task Name</label>
+      <label for="taskname" class="form-label">Task Name</label>
       <input
         type="text"
         class="form-control"
-        formControlName="taskName"
-        id="taskName"
+        formControlName="taskname"
+        id="taskname"
       />
     </div>
     <div class="mb-3">
@@ -46,7 +46,7 @@
     <!-- Name Column -->
     <ng-container matColumnDef="taskname">
       <th mat-header-cell *matHeaderCellDef>Task Name</th>
-      <td mat-cell *matCellDef="let element">{{ element.taskName }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.taskname }}</td>
     </ng-container>
 
     <!-- Description Column -->
