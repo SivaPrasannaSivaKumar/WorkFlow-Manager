@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private route: Router, private http: HttpClient) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient) { }
 
-  public signInForm !: FormGroup;
+  public signInForm !: FormGroup
 
   ngOnInit(): void {
     this.signInForm = this.formBuilder.group({
@@ -21,19 +21,19 @@ export class SignInComponent implements OnInit {
   }
 
   login() {
-    this.http.get<any>("http://localhost:3000/User")
+    this.http.get<any>("http://localhost:3000/Auth")
       .subscribe(res => {
         const user = res.find((a: any) => {
           return a.email === this.signInForm.value.email && a.password === this.signInForm.value.password
-        });
+        })
         if (user) {
-          this.signInForm.reset();
-          this.route.navigate(['/home'])
+          this.signInForm.reset()
+          this.router.navigate(['/createProfile'])
         } else {
-          alert("User not found");
+          alert("User not found")
         }
       }, err => {
-        alert("Something went wrong");
-      });
+        alert("Something went wrong")
+      })
   }
 }

@@ -9,79 +9,83 @@
         />
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form [formGroup]="signInForm" (ngSubmit)="login()">
-          <div
-            class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start"
-          >
-            <p class="lead fw-normal mb-3 me-3">Sign in</p>
-          </div>
-
-          <!-- Email input -->
-          <div class="form-outline mb-4">
-            <input
-              type="email"
-              id="form3Example3"
-              class="form-control form-control-lg"
-              placeholder="Enter a valid email address"
-              formControlName="email"
-            />
-            <label class="form-label" for="form3Example3">Email address</label><br>
-            <span
-              class="text-danger"
-              *ngIf="
-                signInForm.controls['email'].dirty &&
-                signInForm.hasError('required', 'email')
-              "
-              >*Email Id is required</span
+        <form>
+          <form [formGroup]="signInForm" (ngSubmit)="login()">
+            <div
+              class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start"
             >
-          </div>
+              <p class="lead fw-normal mb-3 me-3">Sign in</p>
+            </div>
 
-          <!-- Password input -->
-          <div class="form-outline mb-3">
-            <input
-              type="password"
-              id="form3Example4"
-              class="form-control form-control-lg"
-              placeholder="Enter password"
-              formControlName="password"
-            />
-            <label class="form-label" for="form3Example4">Password</label><br>
-            <span
-              class="text-danger"
-              *ngIf="
-                signInForm.controls['password'].dirty &&
-                signInForm.hasError('required', 'password')
-              "
-              >*Password is required</span
-            >
-          </div>
-
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="#!" class="text-body">Forgot password?</a>
-          </div>
-
-          <div class="text-center text-lg-start mt-4 pt-2">
-            <button
-              type="button"
-              class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem"
-              routerLink=""
-              routerLinkActive="active-link"
-              [disabled]="!signInForm.valid"
-            >
-              Login
-            </button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">
-              Don't have an account?
-              <a
-                href="#!"
-                class="link-danger"
-                routerLink="/signUp"
-                routerLinkActive="active-link"
-                >Register</a
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input
+                type="email"
+                id="form3Example3"
+                class="form-control form-control-lg"
+                placeholder="Enter a valid email address"
+                formControlName="email"
+              />
+              <label class="form-label" for="form3Example3">Email address</label
+              ><br />
+              <span
+                class="text-danger"
+                *ngIf="
+                  signInForm.controls['email'].dirty &&
+                  signInForm.hasError('required', 'email')
+                "
+                >*Email Id is required</span
               >
-            </p>
-          </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+              <input
+                type="password"
+                id="form3Example4"
+                class="form-control form-control-lg"
+                placeholder="Enter password"
+                formControlName="password"
+              />
+              <label class="form-label" for="form3Example4">Password</label
+              ><br />
+              <span
+                class="text-danger"
+                *ngIf="
+                  signInForm.controls['password'].dirty &&
+                  signInForm.hasError('required', 'password')
+                "
+                >*Password is required</span
+              >
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <a href="#!" class="text-body">Forgot password?</a>
+            </div>
+
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button
+                type="button"
+                class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem"
+                routerLink=""
+                routerLinkActive="active-link"
+                [disabled]="!signInForm.valid"
+              >
+                Login
+              </button>
+              <p class="small fw-bold mt-2 pt-1 mb-0">
+                Don't have an account?
+                <a
+                  href="#!"
+                  class="link-danger"
+                  routerLink="/signUp"
+                  routerLinkActive="active-link"
+                  >Register</a
+                >
+              </p>
+            </div>
+          </form>
         </form>
       </div>
     </div>
@@ -94,7 +98,7 @@
       Copyright © 2020. All rights reserved.
     </div>
     <!-- Copyright -->
-s
+    s
     <!-- Right -->
     <div>
       <a href="#!" class="text-white me-4">
