@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Task } from 'src/app/service/Task';
-import { TaskFetch } from 'src/app/service/task-fetch';
+import { Task } from './Task';
+import { TaskFetch } from './task-fetch';
 
 @Injectable({
   providedIn: 'root'
@@ -34,16 +34,11 @@ export class RestService {
     return this.http.get<Task>(url, this.httpOptions);
   }
 
-  updateTaskDetails(task: TaskFetch): Observable<Task> {
-    const url = `${this.url}/${task.id}`;
-    return this.http.put<Task>(url, task, this.httpOptions).pipe(
-      map(() => task)
+  updateTaskDetails(tf: TaskFetch): Observable<Task> {
+    const url = `${this.url}/${tf.id}`;
+    return this.http.put<Task>(url, tf, this.httpOptions).pipe(
+      map(() => tf)
     )
-  }
-
-  viewTaskDetails(id: number): Observable<Task>{
-    const url = `${this.url}/${id}`;
-    return this.http.get<Task>(url, this.httpOptions);
   }
 
 }

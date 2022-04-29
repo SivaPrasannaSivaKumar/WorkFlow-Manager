@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { SignInComponent } from './module/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './module/auth/sign-up/sign-up.component';
 import { UserProfileComponent } from './module/user-profile/user-profile.component';
+import { UpdateTaskComponent } from './module/update-task/update-task.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { UserProfileComponent } from './module/user-profile/user-profile.compone
     TaskComponent,
     SignInComponent,
     SignUpComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UpdateTaskComponent
   ],
   imports: [
     BrowserModule,
