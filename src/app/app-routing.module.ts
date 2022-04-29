@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SignInComponent } from './module/auth/sign-in/sign-in.component';
-import { SignUpComponent } from './module/auth/sign-up/sign-up.component';
+import { SignInComponent } from './module/sign-in/sign-in.component';
+import { SignUpComponent } from './module/sign-up/sign-up.component';
 import { CreateUserProfileComponent } from './module/create-user-profile/create-user-profile.component';
 import { HomeComponent } from './module/home/home.component';
 import { TaskComponent } from './module/task/task.component';

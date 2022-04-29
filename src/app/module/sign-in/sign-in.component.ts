@@ -14,10 +14,6 @@ export class SignInComponent implements OnInit {
   public signInForm !: FormGroup
 
   ngOnInit(): void {
-    this.signInForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
-    })
   }
 
   login() {
@@ -28,7 +24,7 @@ export class SignInComponent implements OnInit {
         })
         if (user) {
           this.signInForm.reset()
-          this.router.navigate(['/createProfile'])
+          this.router.navigate(['createProfile'])
         } else {
           alert("User not found")
         }

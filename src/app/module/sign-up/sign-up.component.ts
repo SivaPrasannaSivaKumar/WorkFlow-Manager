@@ -11,7 +11,7 @@ export class SignUpComponent implements OnInit {
 
   public UserRegister !: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private route: Router, private http: HttpClient) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.UserRegister = this.formBuilder.group({
@@ -22,12 +22,13 @@ export class SignUpComponent implements OnInit {
   }
 
   saveUser() {
-    this.http.post<any>("http://localhost:3000/Auth", this.UserRegister.value).subscribe((res) => {
+    this.http.post<any>("http://localhost:3000/Auth", this.UserRegister.value).subscribe(res => {
       this.UserRegister.reset()
       alert("User Registered Successfully!")
       console.log(this.UserRegister)
+      this.router.navigate(['login'])
     },
-      (err) => {
+      err => {
         console.log("Something went wrong" + err)
       })
   }
