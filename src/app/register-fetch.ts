@@ -1,6 +1,6 @@
 export class RegisterFetch {
   id: any
-  username: any
-  useremail: any
-  userpassword: any
+  name: any
+  email: any
+  password: any
 }

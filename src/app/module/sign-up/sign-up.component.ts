@@ -14,35 +14,35 @@ import { RegisterFetch } from 'src/app/register-fetch';
 export class SignUpComponent implements OnInit {
 
   public UserRegister !: FormGroup;
-
-  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private rs: RestService) { }
-
   Register: Register[] = []
   rf: RegisterFetch
 
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private rs: RestService) { }
+
+
   ngOnInit(): void {
     this.UserRegister = this.formBuilder.group({
-      username: ['', Validators.required],
-      useremail: ['', Validators.required],
-      userpassword: ['', Validators.required]
-    })
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
 
     this.rs.getUserDetails().subscribe((res) => {
       this.Register = res
     }, (err) => {
       console.log(err)
-    })
+    });
   }
 
   saveUser() {
     this.http.post<any>("http://localhost:3000/Auth", this.UserRegister.value).subscribe(res => {
-      this.router.navigate(['login'])
-      this.UserRegister.reset()
-      alert("User Registered Successfully!")
-      console.log(this.UserRegister)
+      this.router.navigate(['login']);
+      this.UserRegister.reset();
+      // alert("User Registered Successfully!");
+      console.log(this.UserRegister);
     },
       err => {
-        console.log("Something went wrong" + err)
+        console.log("Something went wrong" + err);
       })
   }
 
