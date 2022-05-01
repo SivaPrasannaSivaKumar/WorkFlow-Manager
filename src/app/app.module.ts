@@ -10,6 +10,8 @@ import { TaskComponent } from './module/task/task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { SignInComponent } from './module/sign-in/sign-in.component';
 import { SignUpComponent } from './module/sign-up/sign-up.component';
 import { UserProfileComponent } from './module/user-profile/user-profile.component';
@@ -34,7 +36,8 @@ import { CreateUserProfileComponent } from './module/create-user-profile/create-
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

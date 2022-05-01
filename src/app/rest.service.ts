@@ -44,6 +44,13 @@ export class RestService {
     )
   }
 
+  updateStatusDetails(tf: TaskFetch): Observable<Task> {
+    const url = `${this.url}/${tf.status}`;
+    return this.http.put<Task>(url, tf, this.httpOptions).pipe(
+      map(() => tf)
+    )
+  }
+
   getUserDetails() {
     return this.http.get<Register[]>(this.auth);
   }

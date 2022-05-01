@@ -24,7 +24,7 @@ export class SignInComponent implements OnInit {
         })
         if (user) {
           this.signInForm.reset()
-          this.router.navigate(['createProfile'])
+          // this.router.navigate(['createProfile'])
         } else {
           alert("User not found")
         }

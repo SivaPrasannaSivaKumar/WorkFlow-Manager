@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { RestService } from 'src/app/rest.service';
 import { Task } from 'src/app/Task';
-import {TaskFetch} from 'src/app/task-fetch';
+import { TaskFetch } from 'src/app/task-fetch';
 
 
 @Component({
@@ -18,6 +18,7 @@ export class TaskComponent implements OnInit {
   displayedColumns: string[] = ['id', 'taskname', 'description', 'status', 'action']
   Task: Task[] = []
   tf: TaskFetch
+  completeText: string = "Completed"
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private rs: RestService) { }
 
@@ -25,12 +26,12 @@ export class TaskComponent implements OnInit {
     this.TaskGroup = this.formBuilder.group({
       taskname: ['', Validators.required],
       desc: ['', Validators.required],
-      status:['',Validators.required]
+      status: ['', Validators.required]
     });
 
-    this.rs.getTaskDetails().subscribe((res) =>{
+    this.rs.getTaskDetails().subscribe((res) => {
       this.Task = res
-    }, (err) =>{
+    }, (err) => {
       console.log(err)
     })
   }
@@ -39,10 +40,10 @@ export class TaskComponent implements OnInit {
     this.http.post<any>("http://localhost:3000/Task", this.TaskGroup.value).subscribe(res => {
       this.TaskGroup.reset()
       this.TaskGroup.disable()
-      console.log(this.TaskGroup)
+      // console.log(this.TaskGroup)
     },
       err => {
-        console.log("Somsething went wrong")
+        console.log("Somsething went wrong" + err)
       }
     )
   }
@@ -56,21 +57,20 @@ export class TaskComponent implements OnInit {
   }
 
   deleteRow(val: number) {
-    if (confirm("Are you sure?")) {
-      this.rs.deleteTaskDetails(val).subscribe(data => {
+    this.rs.deleteTaskDetails(val).subscribe(data => {
 
-      })
+    })
 
-      this.rs.getTaskDetails().subscribe((res) => {
-        this.Task = res
-      })
+    this.rs.getTaskDetails().subscribe((res) => {
+      this.Task = res
+    })
 
-      this.TaskGroup.enable()
+    this.TaskGroup.enable()
 
-    }
   }
 
-  updateTask(id:number){
+  updateTask(id: number) {
     this.router.navigate(['/update', id])
   }
+
 }
