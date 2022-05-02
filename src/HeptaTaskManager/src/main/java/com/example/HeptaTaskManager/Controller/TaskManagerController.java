@@ -3,6 +3,7 @@ package com.example.HeptaTaskManager.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.example.HeptaTaskManager.Repository.TaskManagerRepo;
 
 
 @RestController
+//@CrossOrigin(origins = "http://localhost/:4200")
 public class TaskManagerController {
 	@Autowired
 	public TaskManagerRepo repo;
@@ -26,12 +28,12 @@ public class TaskManagerController {
 	}
 	
 	@GetMapping("/getTaskById/{id}")
-	public TaskManager getTaskById(int id){
+	public TaskManager getTaskById(@PathVariable int id){
 		return repo.findById(id).orElse(null);
 	}
 	
 	@PostMapping("/addTask")
-	public TaskManager addTask(@PathVariable TaskManager task) {
+	public TaskManager addTask(@RequestBody TaskManager task) {
 		return repo.save(task);
 	}
 	

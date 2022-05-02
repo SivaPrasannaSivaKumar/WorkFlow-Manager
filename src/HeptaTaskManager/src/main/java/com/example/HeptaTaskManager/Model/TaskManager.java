@@ -1,15 +1,32 @@
 package com.example.HeptaTaskManager.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
-@Table(name="TASKMANAGER")
+@Table(name = "TaskManager")
 public class TaskManager {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String taskname, desc, status;
+	@Column(name = "taskname", nullable = false, length = 20)
+	private String taskname;
+	@Column(name = "desc", nullable = false, length = 20)
+	private String desc;
+	@Column(name = "status", nullable = false, length = 20)
+	private String status;
+	
+	public TaskManager() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public TaskManager(int id, String taskname, String desc, String status) {
 		super();
 		this.id = id;

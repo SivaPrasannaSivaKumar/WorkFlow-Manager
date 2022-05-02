@@ -2,7 +2,6 @@ package com.example.HeptaTaskManager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration;
 
 @SpringBootApplication
 public class HeptaTaskManagerApplication {
@@ -11,3 +10,4 @@ public class HeptaTaskManagerApplication {
 		SpringApplication.run(HeptaTaskManagerApplication.class, args);
 	}
 }
+

@@ -20,7 +20,7 @@ export class RestService {
   }
 
 
-  url: string = "http://localhost:3000/Task";
+  url: string = "http://localhost:8080/addTask";
   auth: string = "http://localhost:3000/Auth";
 
   getTaskDetails() {
