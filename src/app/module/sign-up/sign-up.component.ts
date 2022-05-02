@@ -27,11 +27,11 @@ export class SignUpComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    this.rs.getUserDetails().subscribe((res) => {
-      this.Register = res
-    }, (err) => {
-      console.log(err)
-    });
+    // this.rs.getUserDetails().subscribe((res) => {
+    //   this.Register = res
+    // }, (err) => {
+    //   console.log(err)
+    // });
   }
 
   saveUser() {

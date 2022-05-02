@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "TaskManager")
-public class TaskManager {
+public class TaskManager {		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;

@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
-<form class="container">
-  <form class="form-group" (ngSubmit)="update()">
+<div class="container">
+  <form class="form-group" (ngSubmit)="update()" method="post">
     <div class="mb-3">
       <label for="taskname" class="form-label">Task Name</label>
       <input
@@ -32,8 +32,6 @@
       />
     </div>
 
-    <button type="submit" class="btn btn-primary">
-      Update
-    </button>
+    <button type="submit" class="btn btn-primary">Update</button>
   </form>
-</form>
+</div>

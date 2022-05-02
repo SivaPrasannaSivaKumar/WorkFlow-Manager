@@ -37,7 +37,7 @@ export class TaskComponent implements OnInit {
   }
 
   addTask() {
-    this.http.post<any>("http://localhost:4200/addTask", this.TaskGroup.value).subscribe(res => {
+    this.http.post<any>("http://localhost:8080/addTask", this.TaskGroup.value).subscribe(res => {
       this.TaskGroup.reset()
       // this.TaskGroup.disable()
       // console.log(this.TaskGroup)

@@ -21,7 +21,7 @@ export class UpdateTaskComponent implements OnInit {
     let sub = this.route.params.subscribe(params => {
       this.val = params['id']
     })
-    console.log("Id:"+ this.val);
+    // console.log("Id:"+ this.val);
     this.rs.getUpdateTaskDetails(this.val).subscribe(data=> {
       this.tf = data
     })

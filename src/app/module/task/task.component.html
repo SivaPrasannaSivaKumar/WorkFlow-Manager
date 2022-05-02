@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
-<form class="container">
-  <form [formGroup]="TaskGroup" (ngSubmit)="addTask()">
+<div class="container">
+  <form [formGroup]="TaskGroup" name="contactForm" (ngSubmit)="addTask()" method="POST">
     <div class="mb-3">
       <label for="taskname" class="form-label">Task Name</label>
       <input
@@ -33,7 +33,7 @@
       Submit
     </button>
   </form>
-</form>
+</div>
 
 <div class="displayContainer">
   <table mat-table [dataSource]="Task" class="mat-elevation-z8">
