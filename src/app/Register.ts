@@ -1,13 +1,13 @@
 export class Register {
   id: any
-  name: any
-  email: any
-  password: any
+  username: any
+  useremail: any
+  userpassword: any
 
-  constructor(id: any, name: any, email: any, password: any) {
+  constructor(id: any, username: any, useremail: any, userpassword: any) {
     this.id = id
-    this.name = name
-    this.email = email
-    this.password = password
+    this.username = username
+    this.useremail = useremail
+    this.userpassword = userpassword
   }
 }

@@ -23,7 +23,7 @@
                           type="text"
                           id="form3Example1c"
                           class="form-control"
-                          formControlName="name"
+                          formControlName="username"
                         />
                         <label class="form-label" for="form3Example1c"
                           >Your Name</label
@@ -31,8 +31,8 @@
                         <span
                           class="text-danger"
                           *ngIf="
-                            UserRegister.controls['name'].dirty &&
-                            UserRegister.hasError('required', 'name')
+                            UserRegister.controls['username'].dirty &&
+                            UserRegister.hasError('required', 'username')
                           "
                           >*Username is required</span
                         >
@@ -45,7 +45,7 @@
                           type="email"
                           id="form3Example3c"
                           class="form-control"
-                          formControlName="email"
+                          formControlName="useremail"
                         />
                         <label class="form-label" for="form3Example3c"
                           >Your Email</label
@@ -53,8 +53,8 @@
                         <span
                           class="text-danger"
                           *ngIf="
-                            UserRegister.controls['email'].dirty &&
-                            UserRegister.hasError('required', 'email')
+                            UserRegister.controls['useremail'].dirty &&
+                            UserRegister.hasError('required', 'useremail')
                           "
                           >*Email Id is required</span
                         >
@@ -68,7 +68,7 @@
                           type="password"
                           id="form3Example4c"
                           class="form-control"
-                          formControlName="password"
+                          formControlName="userpassword"
                         />
                         <label class="form-label" for="form3Example4c"
                           >Password</label
@@ -76,8 +76,8 @@
                         <span
                           class="text-danger"
                           *ngIf="
-                            UserRegister.controls['password'].dirty &&
-                            UserRegister.hasError('required', 'password')
+                            UserRegister.controls['userpassword'].dirty &&
+                            UserRegister.hasError('required', 'userpassword')
                           "
                           >*Password is required</span
                         >

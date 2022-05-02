@@ -16,11 +16,16 @@ import com.example.HeptaTaskManager.Model.TaskManager;
 import com.example.HeptaTaskManager.Repository.TaskManagerRepo;
 
 
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders="*")
 @RestController
-@CrossOrigin(origins = "*")
 public class TaskManagerController {
 	@Autowired
 	public TaskManagerRepo repo;
+	
+	@PostMapping("addTask")
+	public TaskManager addTask(@RequestBody TaskManager task) {
+		return repo.save(task);
+	}
 	
 	@GetMapping("getTask")
 	public List<TaskManager> getTask(){
@@ -32,10 +37,6 @@ public class TaskManagerController {
 		return repo.findById(id).orElse(null);
 	}
 	
-	@PostMapping("addTask")
-	public TaskManager addTask(@RequestBody TaskManager task) {
-		return repo.save(task);
-	}
 	
 	@DeleteMapping("deleteTask/{id}")
 	public String deleteTask(@PathVariable int id) {
