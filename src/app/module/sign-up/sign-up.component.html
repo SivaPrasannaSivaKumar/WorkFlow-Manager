@@ -10,11 +10,12 @@
                   Sign up
                 </p>
 
-                <form>
+                <div>
                   <form
                     class="mx-1 mx-md-4"
                     [formGroup]="UserRegister"
                     (ngSubmit)="saveUser()"
+                    method="POST"
                   >
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -98,7 +99,7 @@
                       </button>
                     </div>
                   </form>
-                </form>
+                </div>
               </div>
               <div
                 class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"

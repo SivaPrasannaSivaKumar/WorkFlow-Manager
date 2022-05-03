@@ -39,7 +39,7 @@ export class SignUpComponent implements OnInit {
       this.UserRegister.reset();
       this.router.navigate(['login']);
       // alert("User Registered Successfully!");
-      // console.log(this.UserRegister);
+      console.log(this.UserRegister);
     },
       err => {
         console.log("Something went wrong" + err);
