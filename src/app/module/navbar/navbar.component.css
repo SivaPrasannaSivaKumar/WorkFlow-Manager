@@ -9,10 +9,5 @@
 .dropdown-item {
   background-color: #28282B;
   color: #fff;
-  transition: transform 500ms ease-in-out;
 }
 
-.nav-item:hover,
-.dropdown-item:hover {
-  transform: scale(1.1);
-}
