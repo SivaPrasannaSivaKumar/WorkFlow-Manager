@@ -17,7 +17,7 @@ export class SignInComponent implements OnInit {
   }
 
   login() {
-    this.http.get<any>("http://localhost:3000/Auth")
+    this.http.get<any>("http://localhost:8080/getUser")
       .subscribe(res => {
         const user = res.find((a: any) => {
           return a.email === this.signInForm.value.email && a.password === this.signInForm.value.password

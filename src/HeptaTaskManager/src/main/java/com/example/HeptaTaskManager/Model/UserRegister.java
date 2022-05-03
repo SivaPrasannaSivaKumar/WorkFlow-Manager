@@ -15,12 +15,13 @@ import lombok.Data;
 public class UserRegister {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
 	private int id;
-	@Column(name = "username", nullable = false, length = 20)
+	@Column(name = "USERNAME", nullable = false, length = 20)
 	private String username;
-	@Column(name = "useremail", nullable = false, length = 30)
+	@Column(name = "EMAIL", nullable = false, length = 30)
 	private String useremail;
-	@Column(name = "userpassword", nullable = false, length = 20)
+	@Column(name = "PASSWORD", nullable = false, length = 20)
 	private String userpassword;
 	public UserRegister() {
 		super();

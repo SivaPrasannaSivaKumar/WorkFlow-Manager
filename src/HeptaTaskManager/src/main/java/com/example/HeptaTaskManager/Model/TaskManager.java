@@ -15,12 +15,13 @@ import lombok.Data;
 public class TaskManager {		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
 	private int id;
-	@Column(name = "taskname", nullable = false, length = 20)
+	@Column(name = "TASKNAME", nullable = false, length = 20)
 	private String taskname;
-	@Column(name = "desc", nullable = false, length = 20)
+	@Column(name = "DETAIL", nullable = false, length = 20)
 	private String desc;
-	@Column(name = "status", nullable = false, length = 20)
+	@Column(name = "STATUS", nullable = false, length = 20)
 	private String status;
 	
 	public TaskManager() {

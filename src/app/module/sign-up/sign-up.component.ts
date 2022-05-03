@@ -27,19 +27,19 @@ export class SignUpComponent implements OnInit {
       userpassword: ['', Validators.required]
     });
 
-    // this.rs.getUserDetails().subscribe((res) => {
-    //   this.Register = res
-    // }, (err) => {
-    //   console.log(err)
-    // });
+    this.rs.getUserDetails().subscribe((res) => {
+      this.Register = res
+    }, (err) => {
+      console.log(err)
+    });
   }
 
   saveUser() {
-    this.http.post<any>("http://localhost:3000/Auth", this.UserRegister.value).subscribe(res => {
-      this.router.navigate(['login']);
+    this.http.post<any>("http://localhost:8080/addUser", this.UserRegister.value).subscribe(res => {
       this.UserRegister.reset();
+      this.router.navigate(['login']);
       // alert("User Registered Successfully!");
-      console.log(this.UserRegister);
+      // console.log(this.UserRegister);
     },
       err => {
         console.log("Something went wrong" + err);
