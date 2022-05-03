@@ -25,7 +25,6 @@ public class UserRegister {
 	private String userpassword;
 	public UserRegister() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public UserRegister(int id, String username, String useremail, String userpassword) {
 		super();
