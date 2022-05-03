@@ -37,7 +37,8 @@ import { CreateUserProfileComponent } from './module/create-user-profile/create-
     ReactiveFormsModule,
     HttpClientModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

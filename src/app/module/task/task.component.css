@@ -3,6 +3,14 @@
   max-height: 100vh;
 }
 
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+
 table {
   width: 80%;
   margin: 5% auto;
@@ -16,7 +24,10 @@ th, td {
   align-items: center;
 }
 
-.bi {
-  cursor: pointer;
+.img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 

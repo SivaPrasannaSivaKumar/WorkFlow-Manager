@@ -19,6 +19,9 @@ export class TaskComponent implements OnInit {
   Task: Task[] = []
   tf: TaskFetch
   completeText: string = "Completed"
+  showNewTask:boolean = false
+  showViewTask:boolean = false
+  showImg:boolean = true
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private rs: RestService) { }
 
@@ -36,17 +39,31 @@ export class TaskComponent implements OnInit {
     })
   }
 
+  toggleNewTask(){
+    this.showNewTask = true
+    this.showViewTask = false
+    this.showImg = false
+  }
+
+  toggleViewTask(){
+    this.showNewTask = false
+    this.showViewTask = true
+    this.showImg = false
+  }
+
+
   addTask() {
     this.http.post<any>("http://localhost:8080/addTask", this.TaskGroup.value).subscribe(res => {
       this.TaskGroup.reset()
-      // this.TaskGroup.disable()
-      // console.log(this.TaskGroup)
+      window.location.reload()
+      this.router.navigate(['/task'])
     },
       err => {
         console.log("Somsething went wrong" + err)
       }
     )
   }
+
 
   removeItem(element: any) {
     this.Task.forEach((value, index) => {
