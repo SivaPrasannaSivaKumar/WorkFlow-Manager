@@ -19,7 +19,7 @@ public class TaskManager {
 	private int id;
 	@Column(name = "TASKNAME", nullable = false, length = 20)
 	private String taskname;
-	@Column(name = "DETAIL", nullable = false, length = 20)
+	@Column(name = "DETAIL", nullable = false, length = 100)
 	private String desc;
 	@Column(name = "STATUS", nullable = false, length = 20)
 	private String status;
