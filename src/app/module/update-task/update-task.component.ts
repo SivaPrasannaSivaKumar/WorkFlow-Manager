@@ -21,8 +21,8 @@ export class UpdateTaskComponent implements OnInit {
     let sub = this.route.params.subscribe(params => {
       this.val = params['id']
     })
-    // console.log("Id:"+ this.val);
-    this.rs.getUpdateTaskDetails(this.val).subscribe(data=> {
+
+    this.rs.getTaskDetailsById(this.val).subscribe(data=> {
       this.tf = data
     })
   }
@@ -30,6 +30,7 @@ export class UpdateTaskComponent implements OnInit {
   update(){
     this.rs.updateTaskDetails(this.tf).subscribe(data=>{
       this.getTaskDetails()
+      window.location.reload()
     })
     this.router.navigate(['/task'])
   }

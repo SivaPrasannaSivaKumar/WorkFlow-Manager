@@ -19,15 +19,24 @@ export class RestService {
     headers: this.headers
   }
 
-
+  // Task Detail
   getTask: string = "http://localhost:8080/getTask";
+  getTaskById: string = "http://localhost:8080/getTaskById"
   deleteTask: string = "http://localhost:8080/deleteTask";
   updateTask: string = "http://localhost:8080/updateTask";
+
+  // User Register
   getUser: string = "http://localhost:8080/getUser";
+  getUserById: string = "http://localhost:8080/getUserById"
   deleteUser: string = "http://localhost:8080/deleteUser"
 
   getTaskDetails() {
     return this.http.get<Task[]>(this.getTask);
+  }
+
+  getTaskDetailsById(id: number): Observable<Task> {
+    const url = `${this.getTaskById}/${id}`;
+    return this.http.get<Task>(url, this.httpOptions)
   }
 
   deleteTaskDetails(id: number): Observable<Task> {
@@ -49,6 +58,11 @@ export class RestService {
 
   getUserDetails() {
     return this.http.get<Register[]>(this.getUser);
+  }
+
+  getUserDetailsById(id: number): Observable<Task> {
+    const url = `${this.getUserById}/${id}`;
+    return this.http.get<Task>(url, this.httpOptions)
   }
 
   deleteUserDetails(id: number): Observable<Register> {
