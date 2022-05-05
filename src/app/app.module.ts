@@ -16,7 +16,6 @@ import { SignInComponent } from './module/sign-in/sign-in.component';
 import { SignUpComponent } from './module/sign-up/sign-up.component';
 import { UserProfileComponent } from './module/user-profile/user-profile.component';
 import { UpdateTaskComponent } from './module/update-task/update-task.component';
-import { CreateUserProfileComponent } from './module/create-user-profile/create-user-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,8 +25,7 @@ import { CreateUserProfileComponent } from './module/create-user-profile/create-
     SignInComponent,
     SignUpComponent,
     UserProfileComponent,
-    UpdateTaskComponent,
-    CreateUserProfileComponent
+    UpdateTaskComponent
   ],
   imports: [
     BrowserModule,

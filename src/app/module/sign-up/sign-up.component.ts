@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { RestService } from 'src/app/rest.service';
 import { Register } from 'src/app/Register';
 import { RegisterFetch } from 'src/app/register-fetch';
+import { SignupService } from 'src/app/signup.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,7 +18,7 @@ export class SignUpComponent implements OnInit {
   Register: Register[] = []
   rf: RegisterFetch
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private rs: RestService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private signUpServ: SignupService, private rs: RestService) { }
 
 
   ngOnInit(): void {
@@ -27,19 +28,20 @@ export class SignUpComponent implements OnInit {
       userpassword: ['', Validators.required]
     });
 
-    this.rs.getUserDetails().subscribe((res) => {
-      this.Register = res
-    }, (err) => {
-      console.log(err)
-    });
+    // this.rs.getUserDetails().subscribe((res) => {
+    //   this.Register = res
+    // }, (err) => {
+    //   console.log(err)
+    // });
   }
 
+
   saveUser() {
-    this.http.post<any>("http://localhost:8080/addUser", this.UserRegister.value).subscribe(res => {
+    this.http.post<any>("http://localhost:8080/signup", this.UserRegister.value).subscribe(res => {
+      console.log(this.UserRegister);
       this.UserRegister.reset();
       this.router.navigate(['login']);
       // alert("User Registered Successfully!");
-      console.log(this.UserRegister);
     },
       err => {
         console.log("Something went wrong" + err);
@@ -47,3 +49,6 @@ export class SignUpComponent implements OnInit {
   }
 
 }
+
+
+

@@ -26,9 +26,9 @@ export class RestService {
   updateTask: string = "http://localhost:8080/updateTask";
 
   // User Register
-  getUser: string = "http://localhost:8080/getUser";
-  getUserById: string = "http://localhost:8080/getUserById"
-  deleteUser: string = "http://localhost:8080/deleteUser"
+  // getUser: string = "http://localhost:8080/getUser";
+  // getUserById: string = "http://localhost:8080/getUserById"
+  // deleteUser: string = "http://localhost:8080/deleteUser"
 
   getTaskDetails() {
     return this.http.get<Task[]>(this.getTask);
@@ -56,19 +56,19 @@ export class RestService {
     )
   }
 
-  getUserDetails() {
-    return this.http.get<Register[]>(this.getUser);
-  }
+  // getUserDetails() {
+  //   return this.http.get<Register[]>(this.getUser);
+  // }
 
-  getUserDetailsById(id: number): Observable<Task> {
-    const url = `${this.getUserById}/${id}`;
-    return this.http.get<Task>(url, this.httpOptions)
-  }
+  // getUserDetailsById(id: number): Observable<Task> {
+  //   const url = `${this.getUserById}/${id}`;
+  //   return this.http.get<Task>(url, this.httpOptions)
+  // }
 
-  deleteUserDetails(id: number): Observable<Register> {
-    const auth = `${this.deleteUser}/${id}`;
-    return this.http.delete<Register>(auth, this.httpOptions);
-  }
+  // deleteUserDetails(id: number): Observable<Register> {
+  //   const auth = `${this.deleteUser}/${id}`;
+  //   return this.http.delete<Register>(auth, this.httpOptions);
+  // }
 
   // getUpdateUserDetails(id: number): Observable<Register> {
   //   const auth = `${this.auth}/${id}`;

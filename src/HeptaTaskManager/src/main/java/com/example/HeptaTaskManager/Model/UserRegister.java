@@ -14,47 +14,43 @@ import lombok.Data;
 @Table(name = "UserRegister")
 public class UserRegister {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
-	private int id;
-	@Column(name = "USERNAME", nullable = false, length = 20)
-	private String username;
-	@Column(name = "EMAIL", nullable = false, length = 30)
-	private String useremail;
-	@Column(name = "PASSWORD", nullable = false, length = 20)
-	private String userpassword;
+	@Column(name = "EMAIL",nullable = true,length = 25)
+	private String email;
+	@Column(name = "NAME",nullable = false,length = 25)
+	private String name;
+	@Column(name = "PASSWORD",nullable = false,length = 25)
+	private String password;
 	public UserRegister() {
 		super();
 	}
-	public UserRegister(int id, String username, String useremail, String userpassword) {
+	public UserRegister(String email, String name, String password) {
 		super();
-		this.id = id;
-		this.username = username;
-		this.useremail = useremail;
-		this.userpassword = userpassword;
+		this.email = email;
+		this.name = name;
+		this.password = password;
 	}
-	public int getId() {
-		return id;
+	public String getEmail() {
+		return email;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getUsername() {
-		return username;
+	public String getName() {
+		return name;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getUseremail() {
-		return useremail;
+	public String getPassword() {
+		return password;
 	}
-	public void setUseremail(String useremail) {
-		this.useremail = useremail;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getUserpassword() {
-		return userpassword;
-	}
-	public void setUserpassword(String userpassword) {
-		this.userpassword = userpassword;
+	@Override
+	public String toString() {
+		return "UserRegister [email=" + email + ", name=" + name + ", password=" + password 
+				+ ", getEmail()=" + getEmail() + ", getName()=" + getName() + ", getPassword()=" + getPassword()
+				+  "]";
 	}
 }

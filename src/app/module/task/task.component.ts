@@ -32,6 +32,7 @@ export class TaskComponent implements OnInit {
       status: ['', Validators.required]
     });
 
+
     this.rs.getTaskDetails().subscribe((res) => {
       this.Task = res
     }, (err) => {
@@ -55,16 +56,15 @@ export class TaskComponent implements OnInit {
   addTask() {
     this.http.post<any>("http://localhost:8080/addTask", this.TaskGroup.value).subscribe(res => {
       this.TaskGroup.reset()
-      // this.TaskGroup.disable()
       window.location.reload()
       this.router.navigate(['/task'])
     },
-      err => {
-        console.log("Somsething went wrong" + err)
-      }
+    err => {
+      console.log("Somsething went wrong" + err)
+    }
     )
   }
-
+  
 
   removeItem(element: any) {
     this.Task.forEach((value, index) => {

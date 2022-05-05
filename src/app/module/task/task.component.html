@@ -4,7 +4,7 @@
     <button mat-raised-button color="accent" (click)="toggleNewTask()">New Task</button>&nbsp;&nbsp;&nbsp;&nbsp;
     <button mat-raised-button color="primary" (click)="toggleViewTask()">View Task</button>
   </div>
-  <form class="mt-5" [formGroup]="TaskGroup" (ngSubmit)="addTask()" method="POST" *ngIf="showNewTask">
+  <form class="mt-5" [formGroup]="TaskGroup" (ngSubmit)="addTask()" method="POST" *ngIf="showNewTask, newTask">
     <div class="mb-3">
       <label for="taskname" class="form-label">Task Name</label>
       <input

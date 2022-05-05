@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.HeptaTaskManager.Model.UserRegister;
 
 @Repository
-public interface UserRegisterRepo extends JpaRepository<UserRegister, Integer> {
+public interface UserRegisterRepo extends JpaRepository<UserRegister, String> {
 
 }
