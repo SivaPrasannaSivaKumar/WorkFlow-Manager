@@ -13,6 +13,8 @@ import lombok.Data;
 @Entity
 @Table(name = "UserRegister")
 public class UserRegister {
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 	@Id
 	@Column(name = "EMAIL",nullable = true,length = 25)
 	private String email;
@@ -23,12 +25,21 @@ public class UserRegister {
 	public UserRegister() {
 		super();
 	}
-	public UserRegister(String email, String name, String password) {
+	public UserRegister(int id,String email, String name, String password) {
 		super();
+		this.id = id;
 		this.email = email;
 		this.name = name;
 		this.password = password;
 	}
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getEmail() {
 		return email;
 	}

@@ -23,11 +23,10 @@
                       <div class="form-outline flex-fill mb-0">
                         <input
                           type="text"
-                          id="form3Example1c"
                           class="form-control"
                           formControlName="username"
                         />
-                        <label class="form-label" for="form3Example1c"
+                        <label class="form-label" for="username"
                           >Your Name</label
                         ><br />
                         <span
@@ -45,11 +44,10 @@
                       <div class="form-outline flex-fill mb-0">
                         <input
                           type="email"
-                          id="form3Example3c"
                           class="form-control"
                           formControlName="useremail"
                         />
-                        <label class="form-label" for="form3Example3c"
+                        <label class="form-label" for="useremail"
                           >Your Email</label
                         ><br />
                         <span
@@ -68,11 +66,10 @@
                       <div class="form-outline flex-fill mb-0">
                         <input
                           type="password"
-                          id="form3Example4c"
                           class="form-control"
                           formControlName="userpassword"
                         />
-                        <label class="form-label" for="form3Example4c"
+                        <label class="form-label" for="userpassword"
                           >Password</label
                         ><br />
                         <span
@@ -90,10 +87,8 @@
                       class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"
                     >
                       <button
-                        type="button"
+                        type="submit"
                         class="btn btn-primary btn-lg"
-                        routerLink="/signIn"
-                        routerLinkActive="active-link"
                         [disabled]="!UserRegister.valid"
                       >
                         Register

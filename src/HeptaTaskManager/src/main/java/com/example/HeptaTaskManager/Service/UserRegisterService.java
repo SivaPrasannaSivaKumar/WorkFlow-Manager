@@ -48,6 +48,7 @@ public class UserRegisterService {
 	public String saveUser(UserRegister user) {
 		
 		UserRegister convertedUser = new UserRegister(
+				user.getId(),
 				user.getEmail(),
 				user.getName(),
 				user.getPassword()

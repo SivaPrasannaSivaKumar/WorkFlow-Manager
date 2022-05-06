@@ -7,5 +7,12 @@
       "id": 1
     }
   ],
-  "Auth": []
+  "Auth": [
+    {
+      "username": "acdsv",
+      "useremail": "efergt@gmail.com",
+      "userpassword": "sdfvrthtyh",
+      "id": 1
+    }
+  ]
 }

@@ -27,6 +27,7 @@ export class TaskComponent implements OnInit {
   onHold:any = "On Hold"
   completed:any = "Completed"
   status:any=''
+  disablebutton:boolean = false
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private rs: RestService) { }
 
@@ -61,7 +62,7 @@ export class TaskComponent implements OnInit {
   addTask() {
     this.http.post<any>("http://localhost:8080/addTask", this.TaskGroup.value).subscribe(res => {
       this.TaskGroup.reset()
-      window.location.reload()
+      // location.reload()
     },
     err => {
       console.log("Somsething went wrong" + err)
@@ -123,8 +124,8 @@ export class TaskComponent implements OnInit {
     this.created = this.completed
     this.Task.forEach((value, index) => {
       if (value.id == element) {
-        // this.Task.splice(index, 1);
         this.updateTaskStatus(value, "Completed");
+        this.disablebutton=true;
         this.TaskGroup.enable()
       }
     });
