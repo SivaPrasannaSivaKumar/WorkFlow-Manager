@@ -2,7 +2,7 @@ export class Task {
   id: any
   taskname: any
   desc: any
-  status: any
+  status: any 
 
   constructor(id: any, taskname: any, desc: any, status: any) {
     this.id = id

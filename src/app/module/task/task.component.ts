@@ -22,20 +22,24 @@ export class TaskComponent implements OnInit {
   showNewTask:boolean = false
   showViewTask:boolean = false
   showImg:boolean = true
+  created:any="Created"
+  inProgress:any = "In Progress"
+  onHold:any = "On Hold"
+  completed:any = "Completed"
+  status:any=''
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private rs: RestService) { }
 
   ngOnInit(): void {
     this.TaskGroup = this.formBuilder.group({
       taskname: ['', Validators.required],
-      desc: ['', Validators.required],
-      status: ['', Validators.required]
+      desc: ['', Validators.required]
     });
 
 
-    this.rs.getTaskDetails().subscribe((res) => {
+    this.rs.getTaskDetails().subscribe(res => {
       this.Task = res
-    }, (err) => {
+    }, err => {
       console.log(err)
     })
   }
@@ -49,6 +53,7 @@ export class TaskComponent implements OnInit {
   toggleViewTask(){
     this.showNewTask = false
     this.showViewTask = true
+    this.TaskGroup.disable()
     this.showImg = false
   }
 
@@ -57,14 +62,13 @@ export class TaskComponent implements OnInit {
     this.http.post<any>("http://localhost:8080/addTask", this.TaskGroup.value).subscribe(res => {
       this.TaskGroup.reset()
       window.location.reload()
-      this.router.navigate(['/task'])
     },
     err => {
       console.log("Somsething went wrong" + err)
     }
     )
   }
-  
+
 
   removeItem(element: any) {
     this.Task.forEach((value, index) => {
@@ -85,6 +89,45 @@ export class TaskComponent implements OnInit {
 
     this.TaskGroup.enable()
 
+  }
+
+  updateTaskStatus(task: any, status: string) {
+    task.status = status;
+    this.rs.updateTaskDetails(task).subscribe((res) => {
+      console.log(res);
+    });
+  }
+
+  hold(element:any){
+    this.created = this.onHold
+    var selectedElement = this.Task.filter(i => i.id === element);
+    selectedElement.forEach((value, index) => {
+      // value.status = 'hold';
+      this.updateTaskStatus(value, "On hold");
+      this.Task.push(value);
+
+    });
+  }
+
+  Inprocess(element:any){
+    this.created = this.Inprocess
+    var selectedElement = this.Task.filter(i => i.id === element);
+    selectedElement.forEach((value, index) => {
+      this.updateTaskStatus(value, "In process");
+
+    });
+
+  }
+
+  complete(element:any){
+    this.created = this.completed
+    this.Task.forEach((value, index) => {
+      if (value.id == element) {
+        // this.Task.splice(index, 1);
+        this.updateTaskStatus(value, "Completed");
+        this.TaskGroup.enable()
+      }
+    });
   }
 
   updateTask(id: number) {

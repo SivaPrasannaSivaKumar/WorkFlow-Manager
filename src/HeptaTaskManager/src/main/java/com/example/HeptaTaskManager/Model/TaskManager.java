@@ -21,7 +21,6 @@ public class TaskManager {
 	private String taskname;
 	@Column(name = "DETAIL", nullable = false, length = 100)
 	private String desc;
-	@Column(name = "STATUS", nullable = false, length = 20)
 	private String status;
 	
 	public TaskManager() {

@@ -12,6 +12,7 @@
         class="form-control"
         formControlName="taskname"
         id="taskname"
+        name = "taskname"
       />
     </div>
     <div class="mb-3">
@@ -21,18 +22,9 @@
         class="form-control"
         formControlName="desc"
         id="desc"
+        name = "desc"
       />
     </div>
-    <div class="mb-3">
-      <label for="desc" class="form-label">Status</label>
-      <input
-        type="text"
-        class="form-control"
-        formControlName="status"
-        id="status"
-      />
-    </div>
-
     <button type="submit" class="btn btn-primary" [disabled]="!TaskGroup.valid">
       Submit
     </button>
@@ -77,15 +69,19 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="hold(element.id)">
+          <mat-icon>pause</mat-icon>
+        </button>&nbsp;
+        <i class="bi bi-three-dots mt-2" style="color: rgba(247, 0, 255, 0.538); font-size: 1.4rem" (click)="Inprocess(element.id)" ></i>&nbsp;
         <button mat-icon-button color="primary" (click)="updateTask(element.id)">
           <mat-icon>open_in_new</mat-icon>
         </button>&nbsp;
         <button mat-icon-button color="warn" (click)="deleteRow(element.id)">
           <mat-icon>delete</mat-icon>
-        </button>
-        <!-- <button mat-icon-button color="accent">
+        </button>&nbsp;
+        <button mat-icon-button color="accent" (click)="complete(element.id)">
           <mat-icon>check</mat-icon>
-        </button>&nbsp; -->
+        </button>&nbsp;
       </td>
     </ng-container>
 
